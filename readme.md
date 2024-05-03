@@ -1,4 +1,4 @@
-# Voting Software
+<!-- # Voting Software
 
 ## Description
 
@@ -26,4 +26,9 @@ This is a simple voting software that allows users to vote for their favorite ca
 - Error Handling
 - Sorting
 - Searching
+ -->
 
+
+### <p style="color:green">This is a voting website this helps conducting voting related activities easily in the local body </p>
+
+So lets start build 
