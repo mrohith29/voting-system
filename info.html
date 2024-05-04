@@ -1,4 +1,24 @@
-<section id="nominees">
-    <label for="tnom">Enter the number of nominees</label>
-    <textarea name="total-nominee" id="tnom"></textarea>
-</section>
+<script src="js/jquery-3.7.1.min.js"></script>
+<main>
+    <section id="nominees">
+        <form>
+            <label for="tnom">Enter the number of nominees</label>
+            <input type="number" name="tnom" id="tnom" placeholder="0">
+            <br>
+            <button type="submit" id="but">confirm</button>
+            <input type="reset" value="reset">
+        </form>
+    </section>
+
+    <button id="prevpg">
+        go back
+    </button>
+</main>
+<script src="js/common.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#prevpg').click(function () {
+            window.location.href = 'index.html';
+        })
+    })
+</script>

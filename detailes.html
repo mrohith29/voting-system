@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>details</title>
+</head>
+
+<body>
+    <h3>Please enter the names of the candidates</h3>
+    <section>
+
+    </section>
+    <button id="submitBtn" type="submit">Submit</button>
+</body>
+<script>
+    window.onload = function() {
+        let num = Number(localStorage.getItem('numCandidates'))
+        let div1 = document.createElement('div')
+        let sect = document.getElementsByTagName("section")[0]
+        sect.textContent = "Enter the names of " + num.toString() + " nominees"
+        div1.appendChild(sect);
+        let names = new Array(num)
+        for (var i = 0; i < num; i++) {
+            let newElement = document.createElement('input')
+            newElement.type = 'text'
+            newElement.id = 'element' + i
+            let nl = document.createElement('br')
+            sect.appendChild(nl)
+            sect.appendChild(newElement)
+        }
+        document.body.appendChild(div1)
+
+        // Add an event listener to the button
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            for(let i = 0; i<num; i++) {
+                names[i] = document.getElementById('element'+i)
+            }
+            localStorage.setItem('names', JSON.stringify(names))
+            window.location.href = 'vote.html'
+        });
+    }
+</script>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vote</title>
+</head>
+
+<body>
+    <h1>Proud to be a voter</h1>
+    <h2>Vote for your desired candidate</h2>
+    <div id="participants">
+
+    </div>
+</body>
+<script>
+    window.onload = function () {
+        let num = Number(localStorage.getItem('numCandidates'))
+        // let names = JSON.parse(localStorage.getItem('namelist')) // Parse the string back into an array
+        let names = localStorage.getItem('namelist');
+        if (names) {
+            names = JSON.parse(names);
+            alert('names not received')
+        } else {
+            names = [];
+        }
+        let participantsDiv = document.getElementById('participants')
+        for (var i = 0; i < num; i++) {
+            let radio = document.createElement('input')
+            radio.type = 'radio'
+            radio.name = 'candidate'
+            radio.id = 'candidate' + i
+            let label = document.createElement('label')
+            label.htmlFor = 'candidate' + i
+            label.textContent = names[i]
+            participantsDiv.appendChild(radio)
+            participantsDiv.appendChild(label)
+            participantsDiv.append(document.createElement('br'))
+        }
+    }
+</script>
+
+</html>
