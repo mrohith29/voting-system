@@ -15,29 +15,34 @@
     <button id="submitBtn" type="submit">Submit</button>
 </body>
 <script>
-    window.onload = function() {
+    window.onload = function () {
         let num = Number(localStorage.getItem('numCandidates'))
         let div1 = document.createElement('div')
         let sect = document.getElementsByTagName("section")[0]
         sect.textContent = "Enter the names of " + num.toString() + " nominees"
         div1.appendChild(sect);
-        let names = new Array(num)
+        let names = {}
         for (var i = 0; i < num; i++) {
+            let newLabel = document.createElement('label')
+            newLabel.textContent = 'Person '+(i+1)
+            newLabel.style.marginRight = "20px"
             let newElement = document.createElement('input')
             newElement.type = 'text'
             newElement.id = 'element' + i
             let nl = document.createElement('br')
             sect.appendChild(nl)
+            sect.appendChild(newLabel)
             sect.appendChild(newElement)
         }
         document.body.appendChild(div1)
 
         // Add an event listener to the button
-        document.getElementById('submitBtn').addEventListener('click', function() {
-            for(let i = 0; i<num; i++) {
-                names[i] = document.getElementById('element'+i)
+        document.getElementById('submitBtn').addEventListener('click', function () {
+            for (let i = 0; i < num; i++) {
+                person = document.getElementById('element' + i).value
+                names[person] = 0
             }
-            localStorage.setItem('names', JSON.stringify(names))
+            localStorage.setItem('myNames', JSON.stringify(names))
             window.location.href = 'vote.html'
         });
     }

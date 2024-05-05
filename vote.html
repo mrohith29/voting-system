@@ -13,30 +13,52 @@
     <div id="participants">
 
     </div>
+    <button id="confirm">Confirm</button>
+    <button id="finish">Finish</button>
 </body>
 <script>
     window.onload = function () {
         let num = Number(localStorage.getItem('numCandidates'))
-        // let names = JSON.parse(localStorage.getItem('namelist')) // Parse the string back into an array
-        let names = localStorage.getItem('namelist');
+        let names = localStorage.getItem('myNames');
         if (names) {
             names = JSON.parse(names);
-            alert('names not received')
+            let keys = Object.keys(names)
+            let participantsDiv = document.getElementById('participants')
+            for (let i = 0; i < num; i++) {
+                let radio = document.createElement('input')
+                radio.type = 'radio'
+                radio.name = 'candidate'
+                radio.id = 'candidate' + i
+                radio.addEventListener('change', function() {
+                    if(this.checked) {
+                        names[keys[i]] += 1
+                        localStorage.setItem('myNames', JSON.stringify(names))
+                    }
+                });
+                let label = document.createElement('label')
+                label.htmlFor = 'candidate' + i
+                label.textContent = keys[i]
+                participantsDiv.appendChild(radio)
+                participantsDiv.appendChild(label)
+                participantsDiv.append(document.createElement('br'))
+            }
+            document.getElementById('confirm').addEventListener('click', function() {
+                // localStorage.setItem('myNames', JSON.stringify(names))
+                let radios = document.querySelectorAll('input[type="radio"]')
+                for (let i = 0; i < radios.length; i++) {
+                    radios[i].checked = false;
+                }
+            });
+            document.getElementById('finish').addEventListener('click', function() {
+                // localStorage.setItem('myNames', JSON.stringify(names))
+                window.location.href = 'results.html'
+            });
         } else {
-            names = [];
-        }
-        let participantsDiv = document.getElementById('participants')
-        for (var i = 0; i < num; i++) {
-            let radio = document.createElement('input')
-            radio.type = 'radio'
-            radio.name = 'candidate'
-            radio.id = 'candidate' + i
-            let label = document.createElement('label')
-            label.htmlFor = 'candidate' + i
-            label.textContent = names[i]
-            participantsDiv.appendChild(radio)
-            participantsDiv.appendChild(label)
-            participantsDiv.append(document.createElement('br'))
+            alert('names not received')
+            let msg = document.createElement('p')
+            msg.textContent = "No names provided, please provide some name"
+            let d = document.getElementById('participants')
+            d.appendChild(msg)
         }
     }
 </script>

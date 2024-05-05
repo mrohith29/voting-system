@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>results</title>
+</head>
+<body>
+    <h1>So it's results time!!</h1>
+    <section id="result">
+
+    </section>
+</body>
+<script>
+    let num = localStorage.getItem('numCandidates')
+    let names = localStorage.getItem('myNames')
+    names = JSON.parse(names)
+    let keys = Object.keys(names)
+    for (let index = 0; index < num; index++) {
+        let msg = document.createElement('p')
+        msg.textContent = keys[index]+' has won '+names[keys[index]] + ' votes'
+        let sec = document.getElementById('result')
+        sec.appendChild(msg)
+    }
+</script>
+</html>
