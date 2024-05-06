@@ -1,0 +1,33 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E3F2FD;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+#participants {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#btns {
+    display: flex;
+    flex-direction: column;
+    width: 70px;
+    gap: 30px;
+    padding-left: 150px;
+}
+
+#finish {
+   position: fixed;
+   right: 0;
+   bottom: 0;
+   margin: 20px;
+   padding: 10px;
+}

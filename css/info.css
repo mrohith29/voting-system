@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    background-color: #E3F2FD;
+}
+
+main {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#nominees {
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="number"] {
+    padding: 5px;
+    font-size: 16px;
+}
+
+button, input[type="reset"] {
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button#but {
+    background-color: #4CAF50;
+    color: white;
+}
+
+button#but:hover {
+    background-color: white;
+    color: #4CAF50;
+}
+
+button#prevpg {
+    background-color: #f44336;
+    color: white;
+}
+
+button#prevpg:hover {
+    background-color: white;
+    color: #f44336;
+}

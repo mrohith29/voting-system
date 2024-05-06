@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>results</title>
+    <link rel="stylesheet" href="css/results.css">
+    
 </head>
 <body>
     <h1>So it's results time!!</h1>
     <section id="result">
 
     </section>
+    <button>
+        Conduct new elections
+    </button>
 </body>
 <script>
     let num = localStorage.getItem('numCandidates')
@@ -22,5 +27,11 @@
         let sec = document.getElementById('result')
         sec.appendChild(msg)
     }
+
+    document.getElementsByTagName('button')[0].addEventListener('click', function() {
+        localStorage.removeItem('myNames')
+        localStorage.removeItem('num')
+        window.location.href = 'index.html'
+    })
 </script>
 </html>
